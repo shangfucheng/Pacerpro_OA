@@ -1,0 +1,71 @@
+<!-- app/views/items/index.html.erb -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .item-container {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .item-details {
+      flex-grow: 1;
+    }
+
+    .item-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    .item-actions button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Active Items</h1>
+  <%= link_to 'Create New Item', new_item_path, class: 'button' %>
+  <br> <br>
+
+  <% @active_items.each do |item| %>
+    <div class="item-container">
+      <div class="item-details">
+        <p><strong>Name:</strong> <%= item.name %></p>
+      </div>
+      <div class="item-actions">
+        <%= button_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button danger' %>
+      </div>
+    </div>
+  <% end %>
+
+  <hr>
+
+  <h1>Deleted Items</h1>
+  <% @deleted_items.each do |item| %>
+    <div class="item-container">
+      <div class="item-details">
+        <p><strong>Name:</strong> <%= item.name %></p>
+      </div>
+      <div class="item-actions">
+        <%= button_to 'Restore', restore_item_path(item), method: :post, data: { confirm: 'Are you sure?' }, class: 'button success' %>
+      </div>
+    </div>
+  <% end %>
+
+</body>
+</html>
