@@ -26,6 +26,11 @@
       flex-grow: 1;
     }
 
+    .item-details-deleted{
+        flex-grow: 1;
+        color: red;
+    }
+
     .item-actions {
       display: flex;
       align-items: center;
@@ -58,7 +63,7 @@
   <h1>Deleted Items</h1>
   <% @deleted_items.each do |item| %>
     <div class="item-container">
-      <div class="item-details">
+      <div class="item-details-deleted">
         <p><strong>Name:</strong> <%= item.name %></p>
       </div>
       <div class="item-actions">
