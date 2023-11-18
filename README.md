@@ -1,24 +1,32 @@
-# README
+# PacerPro OA: Fucheng Shang
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The soft delete model is implemented in Ruby on Rails.
 
-Things you may want to cover:
+* Created Model Item in app->models->item.rb
 
-* Ruby version
+* Created Controller in app->controllers->items_controller.rb
 
-* System dependencies
+* Created Views in app->views->items->index.html.erb  : root view page
 
-* Configuration
+* Created Views in app->views->items->new.html.erb    : add new item page
 
-* Database creation
+* Created Rspec test in spec->models->item_spec.rb
 
-* Database initialization
 
-* How to run the test suite
+NOTE: You may need to update ruby version in 'Gemfile' and '.ruby-version' to work on your local machine.
 
-* Services (job queues, cache servers, search engines, etc.)
+Command to Start rails server: rails server
 
-* Deployment instructions
+Command to Start rails server if above command does not work: bin/rails server
 
-* ...
+Once server start, a url generated in the console can be used to test on the webpage:
+
+* Can create new item
+
+* Can delete item
+
+* Can restore item
+
+Rspec Test Command: bundle exec rspec --format documentation spec/models/item_spec.rb
+
+Thank you for taking time to review the test. 
